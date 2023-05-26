@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+}
+.navbar{
+    border: solid;
+    background-color: #1E1E1E;
+}
+.nombre{
+    text-decoration: none;
+}
+.navbar{
+    display: flex;
+    height: 160px;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
