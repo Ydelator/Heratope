@@ -110,7 +110,6 @@ const Tienda = () => {
         </div>
         
       </div>
-      {visible ? (
           <div className={`carrito ${visible ? 'visible' : ''}`}>
             <div className="header-carrito">
               <h2>Tu Carrito</h2>  
@@ -149,8 +148,6 @@ const Tienda = () => {
           </div>
           
         </div>
-        ):
-        (null)}
     </div>
   )
 }
