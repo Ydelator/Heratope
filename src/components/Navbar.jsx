@@ -6,9 +6,11 @@ const Navbar = () => {
     <div className='navbar'>
         <button>MENU</button>
         <Link to={'/'} className='nombre'>HERATOPE</Link>
-        <Link to={'/login'}>Iniciar Sesion</Link>
-        <button>Carrito</button>
-        <button>Buscar</button>
+        <div className='options'>
+          <Link to={'/login'}>Iniciar Sesion</Link>
+          <button>Carrito</button>
+          <button>Buscar</button>
+        </div>
     </div>
   )
 }
