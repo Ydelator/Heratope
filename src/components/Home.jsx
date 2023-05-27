@@ -18,7 +18,7 @@ const Home = () => {
       <div className='container-home3'>
         <div className="sec-3">
           <h3 className='blue'>BLEU DE CHANEL</h3>
-          <button className='btn-comprar'>Comprar ahora</button>
+          <Link to={'/tienda'} className='btn-comprar'>Comprar ahora</Link>
         </div>
         <img src="https://5.imimg.com/data5/LV/EC/PL/SELLER-80634802/bleu-chanel-perfume.jpg" alt="bleu-chanel" className='img-bleu'/>
         <h2 className='per-mas-vend'>PERFUME MAS VENDIDO DEL MES</h2>
