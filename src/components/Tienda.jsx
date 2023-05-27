@@ -35,7 +35,7 @@ const Tienda = () => {
 
   return (
     <div className='container-tienda'>
-      <div className='container-items'>
+      <div className={`container-items ${visible ? 'visible' : ''}`}>
         <div className="item">
           <span className='titulo-item'>BLEU DE CHANEL</span>
           <img src="https://static.wixstatic.com/media/6ce809_6eb1461d66874538852a249887880b9f~mv2.png/v1/fit/w_500,h_500,q_90/file.png" alt="" className='img-item'/>
@@ -108,7 +108,9 @@ const Tienda = () => {
           <span className='precio-item'>$63.990</span>
           <button className='btn-item' onClick={()=> addToCart({id: 12, name: 'PURPLE DREAM', price: 63990, img:'https://cdn.shopify.com/s/files/1/0477/7046/8511/products/Purpledreamsansfond_2400x.png?v=1654610334'})}>Agregar al carrito</button>
         </div>
-        {visible ? (
+        
+      </div>
+      {visible ? (
           <div className={`carrito ${visible ? 'visible' : ''}`}>
             <div className="header-carrito">
               <h2>Tu Carrito</h2>  
@@ -149,8 +151,6 @@ const Tienda = () => {
         </div>
         ):
         (null)}
-        
-      </div>
     </div>
   )
 }

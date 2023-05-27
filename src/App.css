@@ -113,6 +113,7 @@ body{
     padding: 10px;
     margin: auto;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     /* oculto lo que queda fuera del .container */
     contain: paint;
@@ -127,6 +128,9 @@ body{
     /* width: 60%; */
     width: 100%;
     transition: .3s;
+}
+.container-items.visible{
+    width: 60%;
 }
 .container-tienda .container-items .item{
     max-width: 200px;
@@ -169,7 +173,7 @@ body{
 /*Estilos del carrito*/
 .carrito{
     border: 1px solid #666;
-    width: 150%;
+    width: 35%;
     margin-top: 30px;
     border-radius: 10px;
     overflow: hidden;
@@ -183,7 +187,8 @@ body{
 }
 .carrito.visible{
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    margin-right: 0;
+    width: 35%;
 }
 .carrito .header-carrito{
     background-color: #000;
