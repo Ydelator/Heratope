@@ -2,16 +2,17 @@ body{
     margin: 0;
     font-family: 'Nunito', sans-serif;
     color: #FFFFFF;
-    background-color: #1E1E1E;
+    background-color: #080808;
 }
 /*Estilos del navbar*/
 .navbar{
     
-    background-color: #1E1E1E;
+    background-color: #080808;
 }
 .nombre{
-    margin-left: 120px;
+    margin-left: 80px;
     text-decoration: none;
+    font-size: 18px;
     color: #FFFFFF;
 }
 .navbar{
@@ -28,6 +29,42 @@ body{
     border: solid turquoise;
     justify-content: space-around;
 }
+.menu-btn{
+    margin-left: 10px;
+}
+.menu-toggle{
+    display: none;
+}
+.menu-toggle:checked ~ .dropdown-content {
+    display: block;
+}
+.drop-down {
+    position: relative;
+    display: inline-block;
+}
+.sec-menu{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 0;
+    display: none;
+    list-style-type: none;
+}
+.dropdown-content li{
+    padding: 10px;
+}
+.dropdown-content li a{
+    color: #333;
+    text-decoration: none;
+}
+.dropdown-content.visible {
+    display: block;
+  }
 /*Estilos del home*/
 .container-home2{
     display: flex;
@@ -59,6 +96,8 @@ body{
 }
 .blue{
     font-family: 'Inter', sans-serif;
+    font-weight: lighter;
+    font-size: 27px;
 }
 /*Estilos del login*/
 .container-login1{
@@ -163,8 +202,8 @@ body{
     display: block;
     margin: 10px auto;
     border: none;
-    background-color: black;
-    color: #fff;
+    background-color: #fff;
+    color: #080808;
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -190,8 +229,8 @@ body{
     width: 35%;
 }
 .carrito .header-carrito{
-    background-color: #000;
-    color: #fff;
+    background-color: #F18D18;
+    color: #080808;
     text-align: center;
     padding:20px 0;
 }
@@ -223,7 +262,7 @@ body{
     line-height: 32px;
     text-align: center;
     border-radius: 50%;
-    border: 1px solid #000;
+    border: 1px solid #fff;
     cursor: pointer;
 }
 .carrito .carrito-items .carrito-item-cantidad{

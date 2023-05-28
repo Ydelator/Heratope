@@ -145,14 +145,14 @@ const Tienda = () => {
                   <div className='carrito-item-detalles'>
                     <span className='carrito-item-titulo'>{item.name}</span>
                     <div className='selector-cantidad'>
-                      <i onClick={()=> removeFromCart(item)} class="fa-solid fa-minus restar-cantidad"></i>
+                      <i onClick={()=> removeFromCart(item)} className="fa-solid fa-minus restar-cantidad"></i>
                       <input type="text" className='carrito-item-cantidad' disabled placeholder={item.quantity}/>
-                      <i onClick={() => addToCart(item)} class="fa-solid fa-plus sumar-cantidad"></i>
+                      <i onClick={() => addToCart(item)} className="fa-solid fa-plus sumar-cantidad"></i>
                     </div>
                     <span className='carrito-item-precio'>{item.price}</span>
                   </div>
                   <button className='btn-eliminar' onClick={()=> removeFromCart(item)}>
-                    <i class="fa-solid fa-trash"></i>
+                    <i className="fa-solid fa-trash"></i>
                   </button>
                 </div>
               ))}
