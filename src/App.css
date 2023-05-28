@@ -113,9 +113,8 @@ body{
     padding: 10px;
     margin: auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    /* oculto lo que queda fuera del .container */
+    /* oculto lo que queda fuera del .contenedor */
     contain: paint;
 }
 /* SECCION container DE ITEMS */
@@ -194,7 +193,7 @@ body{
     background-color: #000;
     color: #fff;
     text-align: center;
-    padding: 30px 0;
+    padding:20px 0;
 }
 .carrito .carrito-items .a{
     display: flex;
@@ -205,7 +204,7 @@ body{
     padding: 20px;
 }
 .carrito .carrito-items .a .item-img{
-    margin-right: 100px;
+    margin-right: 20px;
 }
 .carrito .carrito-items .a .carrito-item-titulo{
     display: block;
@@ -216,6 +215,8 @@ body{
 .carrito .carrito-items .a .selector-cantidad{
     display: inline-block;
     margin-right: 25px;
+}
+.carrito .carrito-items .a .selector-cantidad i{
     font-size: 18px;
     width: 32px;
     height: 32px;
@@ -257,6 +258,13 @@ body{
     background: transparent;
     z-index: 20;
 
+}
+.carrito-total{
+    background-color: #1E1E1E;
+    padding: 30px;
+}
+.carrito .carrito-items .btn-eliminar i{
+    pointer-events: none;
 }
 .carrito-total .fila{
     display: flex;
