@@ -16,14 +16,35 @@ const Tienda = () => {
     }
     setVisible(true)
   };
-  const removeFromCart = (product) =>{
-    const newCartItems = cartItems.filter(
-      (item) => item.id !== product.id
-    )
-    setCartItems(newCartItems)
-      if (cartItems.length == 1) {
-        setVisible(false)
-      }
+  const removeFromCart = (product) => {
+    const existingItem = cartItems.find((item) => item.id === product.id);
+
+    if (existingItem.quantity > 1) {
+      const updatedCartItems = cartItems.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      setCartItems(updatedCartItems);
+    } else {
+      const updatedCartItems = cartItems.filter((item) => item.id !== product.id);
+      setCartItems(updatedCartItems);
+    }
+    let total = 0
+    cartItems.forEach((item) => {
+      total = total + item.quantity
+    });
+    if (total == 1) {
+      setVisible(false)
+    }
+  };
+  const restCart = (product) =>{
+    const existingItem = cartItems.find((item) => item.id === product.id); 
+
+    if (existingItem > 1) {
+      const updatedCartItems = cartItems.map((item)=>
+        item.id === product.id ? {...item, quantity : item.quantity-1} : item
+      )
+      setCartItems(updatedCartItems)
+    }
   }
   const calculateTotal = () =>{
     let total = 0;
@@ -124,27 +145,27 @@ const Tienda = () => {
                   <div className='carrito-item-detalles'>
                     <span className='carrito-item-titulo'>{item.name}</span>
                     <div className='selector-cantidad'>
-                      <i class="fa-solid fa-minus restar-cantidad"></i>
+                      <i onClick={()=> removeFromCart(item)} className="fa-solid fa-minus restar-cantidad"></i>
                       <input type="text" className='carrito-item-cantidad' disabled placeholder={item.quantity}/>
-                      <i onClick={() => addToCart(item)} class="fa-solid fa-plus sumar-cantidad"></i>
+                      <i onClick={() => addToCart(item)} className="fa-solid fa-plus sumar-cantidad"></i>
                     </div>
                     <span className='carrito-item-precio'>{item.price}</span>
                   </div>
                   <button className='btn-eliminar' onClick={()=> removeFromCart(item)}>
-                    <i class="fa-solid fa-trash"></i>
+                    <i className="fa-solid fa-trash"></i>
                   </button>
                 </div>
               ))}
             </div>
           )}
           <div className="carrito-total">
-            <div className="fila">
-              <strong>Tu Total: </strong>
+            <div className='fila'>
+              <strong>Tu Total</strong>
               <span className='carrito-precio-total'>
                 ${calculateTotal()}
               </span>
             </div>
-            <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i> </button>
+            <button className='btn-pagar'>Pagar <i className='fa-solid fa-bag-shopping'></i> </button>
           </div>
           
         </div>
