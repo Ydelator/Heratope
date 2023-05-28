@@ -25,7 +25,7 @@ const Navbar = () => {
         <Link to={'/'} className='nombre'>HERATOPE</Link>
         <div className='options'>
           <Link to={'/login'}>Iniciar Sesion</Link>
-          <button>Carrito</button>
+          <Link to={''}><i className="fa-solid fa-cart-shopping"></i></Link>
           <Link to={'/tienda'}>Buscar</Link>
         </div>
     </div>
