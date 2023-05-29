@@ -302,8 +302,8 @@ body{
     display: block;
     margin: 10px auto;
     border: none;
-    background-color: #fff;
-    color: #080808;
+    background-color: #F18D18;
+    color: #FFFFFF;
     padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
@@ -330,7 +330,7 @@ body{
 }
 .carrito .header-carrito{
     background-color: #F18D18;
-    color: #080808;
+    color: #FFFFFF;
     text-align: center;
     padding:20px 0;
 }
