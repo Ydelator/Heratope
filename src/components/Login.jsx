@@ -1,5 +1,5 @@
 import React from 'react'
-import {auth} from '../firebase'
+import {auth, db} from '../firebase'
 
 const Login = () => {
   const [email, setEmail] = React.useState('')
@@ -57,14 +57,44 @@ const Login = () => {
       return
     }
     setError(null)
+    e.target.reset
     if(modoRegistro){
       registrar()
     }
   }
-
+  const login = React.useCallback(async()=>{
+    try {
+      const res = await auth.signInWithEmailAndPassword(email,password)
+      console.log('no funciona')
+    } catch (error) {
+      console.log(error.code)
+      if(error.code === 'auth/invalid.email'){
+        setError('Email no válido')
+      }
+      if (error.code === 'auth/user-not-found'){
+        setError('Email no registrado')
+      }
+      if(error.code === 'auth/wrong-password'){
+        setError('Contraseña incorrecta')
+      }
+    }
+  }, [email, password])
   const registrar = React.useCallback(async()=>{
     try {
       const res = await auth.createUserWithEmailAndPassword(email,password)
+      await db.collection('cliente').doc(res.user.email).set({
+        nombre: nombre,
+        apellido: apellido,
+        idNumber: idNumber,
+        email: res.user.email,
+        id: res.user.uid
+      })
+      setNombre('')
+      setApellido('')
+      setIdNumber('')
+      setEmail('')
+      setPassword('')
+      setError(null)
       console.log(res.user);
     } catch (error) {
       console.log(error.code);
@@ -75,7 +105,7 @@ const Login = () => {
         setError('Email ya registrado')
       }
     }
-  }, [email, password])
+  }, [nombre,apellido,idNumber, email, password])
 
   return (
     <div className='container-login1'>
@@ -91,7 +121,7 @@ const Login = () => {
                 )
               } 
               <div className='container-nombres-login'>
-                <input className='inputs' type="text" placeholder='Nombre' onChange={e=>setNombre(e.target.value.trim())}/>
+                <input className='inputs' type="text" placeholder='Nombre' onChange={e =>setNombre(e.target.value.trim())}/>
                 <input className='inputs' type="text" placeholder='Apellido'onChange={e=>setApellido(e.target.value.trim())}/>
               </div>
               <input className='inputs' type="number" placeholder='Identificacion'onChange={e=>setIdNumber(e.target.value.trim())}/>
@@ -112,7 +142,7 @@ const Login = () => {
             <input className='inputs' type="email" placeholder='Correo electronico' onChange={e=>setEmail(e.target.value.trim())}/>
             <input className='inputs' type="password" placeholder='Contraseña' onChange={e=>setPassword(e.target.value.trim())}/>
             <p className='txt-login1'>Recordar contraseña</p>
-            <button className='btn btn-login'>INICIAR SESION</button>
+            <button type='submit' className='btn-login'>INICIAR SESION</button>
             <p className='txt-login2' onClick={()=>{setModo(!modoRegistro)}}>¿No tienes cuenta? Registrate</p>
           </form>
         }
