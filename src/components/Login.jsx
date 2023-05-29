@@ -1,5 +1,6 @@
 import React from 'react'
 import {auth, db} from '../firebase'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = React.useState('')
@@ -9,6 +10,7 @@ const Login = () => {
   const [nombre, setNombre] = React.useState('')
   const [apellido, setApellido] = React.useState('')
   const [idNumber, setIdNumber] = React.useState('')
+  const navigate = useNavigate()
 
   const guardarDatos = (e)=>{
     e.preventDefault()
@@ -66,6 +68,7 @@ const Login = () => {
     try {
       const res = await auth.signInWithEmailAndPassword(email,password)
       console.log(res.user)
+      navigate('/')
     } catch (error) {
       console.log(error.code)
       if(error.code === 'auth/invalid.email'){
