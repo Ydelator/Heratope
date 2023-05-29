@@ -9,6 +9,9 @@ body{
     
     background-color: #080808;
 }
+.img-bleu{
+    height: 100%;
+}
 .nombre{
     margin-left: 180px;
     text-decoration: none;

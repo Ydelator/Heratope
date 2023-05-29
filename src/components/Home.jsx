@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import perfume from '../assets/image 211.png';
 
 const Home = () => {
   return (
@@ -27,7 +28,7 @@ const Home = () => {
             <Link to={'/tienda'} className='btn-comprar'>Comprar ahora</Link>
           </div>
         </div>
-        <img src="https://5.imimg.com/data5/LV/EC/PL/SELLER-80634802/bleu-chanel-perfume.jpg" alt="bleu-chanel" className='img-bleu'/>
+        <img src= {perfume} alt="bleu-chanel" className='img-bleu'/>
         <h2 className='per-mas-vend'>PERFUME MÁS VENDIDO DEL MES</h2>
       </div>
     </div>
