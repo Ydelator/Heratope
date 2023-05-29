@@ -3,30 +3,38 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const [toggleMenu,setToggle] = React.useState(false)
+  const [visible1, setVisible1] = React.useState(false)
+  const [visible2, setVisible2] = React.useState(false)
+  const ini1 = () =>{
+    setVisible1(true)
+    setVisible2(false)
+    console.log("funciona")
+  }
+  const ini2 = () =>{
+    setVisible1(false)
+    setVisible2(true)
+  }
   const cambio = () =>{
     setToggle(!toggleMenu)
   }
   return (
     <div className='navbar'>
       <div className="drop-down">
-        <div className='sec-menu' onClick={cambio}>
-          <i className="fa-solid fa-bars"></i>
-          <a className='menu-btn'>MENU</a>
+        <div className='sec-menu'>
+            <Link className='link-sec-menu' to={'/'}>
+              <span className="material-symbols-outlined">
+                home
+              </span>
+            </Link>
         </div>
-        <ul className= {`dropdown-content ${toggleMenu ? 'visible' : ''}`}>
-          <li><a href="#">Hombre</a></li>
-          <li><a href="#">Mujer</a></li>
-          <li><a href="#">Descuentos</a></li>
-          <li><a href="#">Todo</a></li>
-        </ul>
       </div>
       
         
         <Link to={'/'} className='nombre'>HERATOPE</Link>
         <div className='options'>
-          <Link to={'/login'}>Iniciar Sesion</Link>
-          <Link to={''}><i className="fa-solid fa-cart-shopping"></i></Link>
-          <Link to={'/tienda'}>Buscar</Link>
+          <Link to={'/login'} className= {`link ${visible1 ? 'visible' : ''}`} onClick={ini1}>Iniciar Sesion</Link>
+          <Link to={'/tienda'} className={`link ${visible2 ? 'visible' : ''}`} onClick={ini2}><i className="fa-solid fa-cart-shopping"></i></Link>
+          <Link to={'/tienda'} className='link'>Buscar</Link>
         </div>
     </div>
   )

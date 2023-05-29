@@ -10,18 +10,25 @@ const Home = () => {
           <h1>DESCUBRE TU FRAGANCIA</h1>
         </div>
         <div className='sec-2'>
-          <h3>¿Como funciona Heratope?</h3>
-          <p>Te ayudamos a escoger tu perfume si aún tienes dudas o puedes comprar tu perfume preferido directamente con nosotros</p>
-          <Link to={'/tienda'}>Empezar</Link>
+          <h1>¿ESTÁS LISTO PARA ESCOGER TU FRAGANCIA?</h1>
+          <p></p>
+          <div className="empezar">
+            <Link to={'/tienda'} className='link-empezar'>Empezar</Link>
+            <span className="material-symbols-outlined">
+            call_made
+            </span>
+          </div>
         </div>
       </div>
       <div className='container-home3'>
         <div className="sec-3">
           <h3 className='blue'>BLEU DE CHANEL</h3>
-          <Link to={'/tienda'} className='btn-comprar'>Comprar ahora</Link>
+          <div className='pre-btn-comprar'>
+            <Link to={'/tienda'} className='btn-comprar'>Comprar ahora</Link>
+          </div>
         </div>
         <img src="https://5.imimg.com/data5/LV/EC/PL/SELLER-80634802/bleu-chanel-perfume.jpg" alt="bleu-chanel" className='img-bleu'/>
-        <h2 className='per-mas-vend'>PERFUME MAS VENDIDO DEL MES</h2>
+        <h2 className='per-mas-vend'>PERFUME MÁS VENDIDO DEL MES</h2>
       </div>
     </div>
   )
