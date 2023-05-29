@@ -25,7 +25,7 @@ const Login = () => {
       return
     }
     setError(null)
-    if(modoRegistro){
+    if(!modoRegistro){
       login()
     }
   }
@@ -65,7 +65,7 @@ const Login = () => {
   const login = React.useCallback(async()=>{
     try {
       const res = await auth.signInWithEmailAndPassword(email,password)
-      console.log('no funciona')
+      console.log(res.user)
     } catch (error) {
       console.log(error.code)
       if(error.code === 'auth/invalid.email'){
